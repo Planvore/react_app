@@ -6,3 +6,17 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
+
+var Index = (
+    <ul>
+       <li>test</li>
+       <li>test</li>
+       <li>test</li>
+    </ul>
+);
+
+ReactDOM.render(
+    Index,
+    document.getElementById('root')
+);
+
