@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -9,9 +10,9 @@ registerServiceWorker();
 
 var Index = (
     <ul>
-       <li>test</li>
-       <li>test</li>
-       <li>test</li>
+      <li>test</li>
+      <li>test</li>
+      <li>test</li>
     </ul>
 );
 
