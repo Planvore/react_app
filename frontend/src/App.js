@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-var company = {
+let company = {
     name: 'Planvooore',
-    location: 'Florianópolis',
+    location: 'Brasil',
     business: 'dashboards'
 };
 
@@ -15,6 +15,23 @@ function getLocation(location) {
         return undefined;
     }
 }
+
+let count = 0;
+const addOne = () => {
+    console.log('addOne');
+    count++;
+};
+
+const minusOne = () => {
+    console.log('minusOne');
+    count--;
+};
+
+const reset = () => {
+    console.log('reset');
+    count=0;
+};
+
 
 class App extends Component {
   render() {
@@ -31,7 +48,12 @@ class App extends Component {
         <p className="app-intro">
           This is a pilot React application.
         </p>
-      </div>
+                <h1>Count: {count}</h1>
+                <button onClick={addOne}>+1</button>
+                <button onClick={minusOne}>-1</button>
+                <button onClick={reset}>Reset</button>
+            </div>
+        
     );
   }
 }
