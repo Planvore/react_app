@@ -38,6 +38,7 @@ build/Release
 node_modules/
 jspm_packages/
 
+
 # Typescript v1 declaration files
 typings/
 
@@ -68,3 +69,5 @@ typings/
 out
 gen
 /frontend/node_modules/
+/__pycache__/
+backend/backend/__pycache__/

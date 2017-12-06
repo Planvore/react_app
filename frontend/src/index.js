@@ -9,7 +9,7 @@ import { Button, Input, List } from 'semantic-ui-react';
 let app = {
     title: 'Planvooore',
     subtitle: 'Brasil',
-    options: ['One', 'Two']
+    options: []
 };
 
 const onFormSubmit = (e) => {
@@ -27,8 +27,21 @@ const onFormSubmit = (e) => {
 const removeAll = () => {
     app.options = [];
     uprender();
-}
+};
 
+const makeDecision = () => {
+  const randomNum = Math.floor(Math.random() * app.options.length);
+  const option = app.options[randomNum];
+  alert(option);
+};
+
+
+let visibility = false;
+
+const toggleVisibility = () => {
+  visibility = !visibility;
+  uprender();
+};
 
 const uprender = () => {
     const template = (
@@ -45,18 +58,18 @@ const uprender = () => {
       </div>
         <div>
           <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+          <p>{app.options.length}</p>
 
-            <p>{app.options.length}</p>
-            <List bulleted>
-                <List.Item>Item one</List.Item>
-                <List.Item>Item two</List.Item>
-            </List>
+          <List bulleted>
+              {app.options.map((option) => { return <List.Item key={option}>{option}</List.Item>; }) }
+          </List>
 
             <form onSubmit={onFormSubmit}>
               <Input type="text" name="option" placeholder="Add text..."/>
+              <p></p>
               <Button content="Add Option"/>
               <Button color='red' onClick={removeAll} content="Remove all"/>
-
+              <Button disabled={app.options.length === 0} color='green' onClick={makeDecision} content="Decide for me!"/>
             </form>
         </div>
 
@@ -66,6 +79,18 @@ const uprender = () => {
             <Button circular color='linkedin' icon='linkedin'/>
             <Button circular color='google plus' icon='google plus'/>
           </div>
+
+        <div>
+          <p></p>
+          <h1>Toggle Visibility</h1>
+          <Button onClick={toggleVisibility} color="blue" toggle content={ visibility ? "Hide Details" : "See details" } />
+          { visibility && (
+            <div>
+            <p>This is the details that were hidden!</p>
+            </div>
+          )}
+        </div>
+
       </div>
     );
 
