@@ -58,6 +58,8 @@ const uprender = () => {
       </div>
         <div>
           <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+          <p>{app.options.length}</p>
+
           <List bulleted>
               {app.options.map((option) => { return <List.Item key={option}>{option}</List.Item>; }) }
           </List>
